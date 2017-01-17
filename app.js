@@ -1,14 +1,8 @@
-const http = require('http');
+
 const express = require( 'express' );
 const app = express();
-const server = http.createServer();
 
-app.get('/', function(req, res){
-  res.send('Something else');
-});
-app.listen(3000, function(){
-  console.log('Example!!!');
-});
+var PORT = 3000;
 
 app.use(function (req, res, next) {
     // do your logging here
@@ -16,6 +10,14 @@ app.use(function (req, res, next) {
     console.log('I heard that', req.url);
   //  console.log(req);
     next();
+});
+
+app.get('/', function(req, res){
+  res.send('Something else');
+});
+
+app.listen(PORT, function(){
+  console.log(`Listening on port number ${PORT}`);
 });
 
 // app.on('request', function(req, res){
