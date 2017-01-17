@@ -2,8 +2,12 @@ const _ = require('lodash');
 let data = [];
 
 function add (name, content) {
-  data.push({ name: name, content: content });
+  data.push({ name: name, content: content, id: id()});
 }
+
+function id(){
+  return '_' + Math.random().toString(36).substr(2, 9);
+};
 
 function list () {
   return _.cloneDeep(data);
